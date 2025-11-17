@@ -221,49 +221,63 @@ p {
 }
 
 /* ===============================
-   Service Cards (Schulungen)
+   Schulungen & Workshops
+   (große Karten)
    =============================== */
 
-.service-list {
+#workshops {
+  margin-bottom: 3rem;
+}
+
+.workshop-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-  list-style: none;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 1.5rem;
 }
 
-.service-item {
-  background: var(--card-bg);
-  border-radius: 1rem;
-  padding: 1.25rem 1.5rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.workshop-card {
   display: flex;
+  flex-direction: row;
   align-items: flex-start;
-  gap: 1rem;
+  background: var(--card-bg);
   border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.service-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+.workshop-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-.service-icon-box ion-icon {
-  font-size: 1.8rem;
+.workshop-card .icon {
   color: var(--accent-color);
-  margin-top: 0.2rem;
+  font-size: 2rem;
+  margin-right: 1rem;
+  flex-shrink: 0;
 }
 
-.service-item-title {
-  font-size: 1.1rem;
-  font-weight: 600;
+.workshop-card .content h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
   color: var(--text-primary);
-  margin-bottom: 0.25rem;
 }
 
-.service-item-text {
+.workshop-card .content p {
   font-size: 0.95rem;
+  line-height: 1.55;
   color: var(--text-secondary);
-  line-height: 1.5;
+}
+
+/* Mobilansicht Workshops: 1 Spalte */
+@media (max-width: 800px) {
+  .workshop-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ===============================
@@ -390,6 +404,13 @@ p {
   text-decoration: underline;
 }
 
+/* Abstand vor Impressum & Datenschutz */
+
+#impressum,
+#datenschutz {
+  margin-top: 2rem;
+}
+
 /* ===============================
    Responsives Design
    =============================== */
@@ -424,10 +445,6 @@ p {
 
   .navbar-list {
     gap: 1rem;
-  }
-
-  .service-list {
-    grid-template-columns: 1fr;
   }
 
   .main-content {
